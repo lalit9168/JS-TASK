@@ -3,7 +3,7 @@ class Task {
     this.id = Date.now();
     this.name = name;
     this.description = description;
-    this.status = status; // Ensure status is correctly assigned
+    this.status = status; 
   }
 }
 
@@ -24,7 +24,7 @@ if (window.location.pathname.endsWith("index.html") || window.location.pathname 
   function addTask() {
     const name = taskNameInput.value.trim();
     const description = taskDescriptionInput.value.trim();
-    const status = document.querySelector('input[name="status"]:checked').value; // Get selected status
+    const status = document.querySelector('input[name="status"]:checked').value; 
 
     if (!name) {
       alert("Task name cannot be empty!");
@@ -36,7 +36,7 @@ if (window.location.pathname.endsWith("index.html") || window.location.pathname 
       return;
     }
 
-    const newTask = new Task(name, description, status); // Pass status to Task constructor
+    const newTask = new Task(name, description, status); 
     tasks.push(newTask);
     saveTasks();
 
@@ -69,7 +69,7 @@ if (window.location.pathname.endsWith("tasks.html")) {
 
     filteredTasks.forEach((task) => {
       const taskItem = document.createElement("div");
-      taskItem.className = `task-item ${task.status}`; // Fixed template literal
+      taskItem.className = `task-item ${task.status}`; 
       taskItem.innerHTML = `
         <div>
           <h3>${task.name}</h3>
@@ -104,7 +104,7 @@ if (window.location.pathname.endsWith("tasks.html")) {
     if (newName !== null && newDescription !== null && newStatus !== null) {
       task.name = newName.trim();
       task.description = newDescription.trim();
-      task.status = newStatus.trim().toLowerCase() === "completed" ? "completed" : "pending"; // Ensure valid status
+      task.status = newStatus.trim().toLowerCase() === "completed" ? "completed" : "pending"; 
       saveTasks();
       renderTasks(filterSelect.value);
     }
@@ -124,6 +124,6 @@ if (window.location.pathname.endsWith("tasks.html")) {
     window.location.href = "index.html";
   });
 
-  // Initial render
+ 
   renderTasks();
 }
